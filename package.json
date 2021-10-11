@@ -8,11 +8,13 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
+    "@types/ws": "^8.2.0",
     "nodemon": "^2.0.13",
     "ts-node": "^10.2.1"
   },
   "dependencies": {
     "express": "^4.17.1",
-    "pug": "^3.0.2"
+    "pug": "^3.0.2",
+    "ws": "^8.2.3"
   }
 }
