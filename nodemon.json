@@ -1,3 +1,6 @@
 {
-  "exec": "ts-node src/server.ts"
+  "watch": ["src"],
+  "ext": "ts,pug",
+  "exec": "ts-node ./src/server.ts",
+  "ignore": ["src/public/*"]
 }
