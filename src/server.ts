@@ -27,7 +27,6 @@ wss.on('connection', (socket) => {
     switch (message.type) {
       case 'new_message':
         sockets.forEach((aSocket) =>
-          // @ts-ignore
           aSocket.send(`${socket['nickname']}: ${message.payload}`)
         )
         break
