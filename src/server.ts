@@ -1,5 +1,6 @@
 import * as http from 'http'
-import * as SocketIO from 'socket.io'
+import { Server } from 'socket.io'
+import { instrument } from '@socket.io/admin-ui'
 import * as express from 'express'
 
 const app = express()
@@ -13,7 +14,15 @@ app.get('/*', (_, res: express.Response) => res.redirect('/'))
 const handleListen = () => console.log(`Listening on http://localhost:3000`)
 
 const httpServer = http.createServer(app)
-const wsServer = new SocketIO.Server(httpServer)
+const wsServer = new Server(httpServer, {
+  cors: {
+    origin: ['https://admin.socket.io'],
+    credentials: true,
+  },
+})
+instrument(wsServer, {
+  auth: false,
+})
 
 function publicRooms() {
   const {
